@@ -30,7 +30,7 @@ function juno.onUpdate(dt)
       color[3] = color[3] - .1
     end
   end)
-  coroutine.resume(fade_out)
+  tick.delay(coroutine.resume(fade_out),2)
 end
 
 function juno.onDraw(dt)
