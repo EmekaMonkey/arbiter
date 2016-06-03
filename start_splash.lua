@@ -37,19 +37,20 @@ function juno.onUpdate(dt)
     end)
     fade_in()
     tick.delay(fade_out, 2)--]]
+
+    fade_in = coroutine.create(function()
+      for i = 1, 2 do
+        color[1] = color[1] + .01
+        color[2] = color[2] + .01
+        color[3] = color[3] + .01
+      end
+    end)
+    coroutine.resume(fade_in)
     fade_out = coroutine.create(function()
       for i = 1, 5 do
         color[1] = color[1] - .01
         color[2] = color[2] - .01
         color[3] = color[3] - .01
-      end
-    end)
-    coroutine.resume(fade_in)
-    fade_in = coroutine.create(function()
-      for i = 1, 5 do
-        color[1] = color[1] + .01
-        color[2] = color[2] + .01
-        color[3] = color[3] + .01
       end
     end)
 
