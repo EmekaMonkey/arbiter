@@ -4,6 +4,7 @@ G = {
   height = 64,
   scale = 4
 }
+
 return {
   title = G.title,
   width = G.width * G.scale,

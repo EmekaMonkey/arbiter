@@ -1,16 +1,9 @@
-require("src.code.rect")
+state = "start_splash"
+if state == "start_splash" then
+  dofile("start_splash.lua")
 
-function juno.onLoad(dt)
-  juno.debug.setVisible(true)
-  G.screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
-  local a = Rect("a", 1, 1, 1, 1)
-  local b = Rect("b", 2, 2, 2, 2)
-end
-
-function juno.onUpdate(dt)
-
-end
-
-function juno.onDraw(dt)
-
+else
+  function juno.onDraw()
+    juno.graphics.drawCircle(128, 128, 64, unpack(0,0,0))
+  end
 end
