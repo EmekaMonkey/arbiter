@@ -1,4 +1,3 @@
-require("src.code.rect")
 coil = require("src.code.lib.coil")
 tick = require("src.code.lib.tick")
 splash_state = {}
