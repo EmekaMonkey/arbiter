@@ -13,14 +13,20 @@ end
 function menu_state.onUpdate(dt)
   l.coil.update(dt)
   l.tick.update(dt)
+	
 end
 
 function menu_state.onDraw(dt)
+	x,y = juno.mouse.getPosition()
+	juno.graphics.drawBox(x, y, 16, 16)
+	juno.graphics.drawBox(x+8, y+8, 16, 16)
   juno.graphics.drawText(font, "arbiter", 102, 32)
   juno.graphics.drawRect(96, 96, 64, 16,unpack{.9,.7,.7})
   juno.graphics.drawText(font, buttons[1], 102, 96)
   juno.graphics.drawRect(96, 128, 64, 16,unpack{.9,.7,.7})
   juno.graphics.drawRect(96, 160, 64, 16,unpack{.9,.7,.7})
+	
 end
+
 
 return menu_state
