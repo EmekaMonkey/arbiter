@@ -16,7 +16,6 @@ function menu_state.onDraw(dt)
   juno.graphics.drawRect(96, 64, 64, 16,unpack{.9,.7,.7})
   juno.graphics.drawRect(96, 96, 64, 16,unpack{.9,.7,.7})
   juno.graphics.drawRect(96, 128, 64, 16,unpack{.9,.7,.7})
-  print(96+32)
 end
 
 return menu_state

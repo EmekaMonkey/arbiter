@@ -5,13 +5,8 @@ function juno.onLoad(dt)
   juno.debug.setVisible(true)
   G.screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
   state = "splash_state"
-  if      state == "splash_state"  then
-    splash_state.onLoad(dt)
-  elseif  state == "game_state"    then
-
-  elseif  state == "menu_state"    then
-    menu_state.onLoad(dt)
-  end
+  menu_state.onLoad(dt)
+  splash_state.onLoad(dt)
 end
 
 function juno.onUpdate(dt)
@@ -22,7 +17,7 @@ function juno.onUpdate(dt)
   elseif  state == "menu_state"     then
     menu_state.onUpdate(dt)
   end
-  print(state)
+  -- print(state)
 end
 
 function juno.onDraw(dt)
