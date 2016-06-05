@@ -30,11 +30,13 @@ function splash_state.onUpdate(dt)
           l.coil.wait(.1)
         end
         l.coil.wait(.5)
-        state = "menu_state"
       end)
+      state = "menu_state"
     end
 end
 function splash_state.onDraw(dt)
+  -- 
+  -- juno.graphics.drawBox(x, y, 11, 16, unpack{1,1,1})
   juno.graphics.clear(0, 0, 0, 1)
   juno.graphics.setColor(unpack(color))
   juno.graphics.drawCircle(128, 128, 64)

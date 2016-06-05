@@ -2,14 +2,15 @@ l = require("src.code.libloader")
 require("src.code.states.splash_state")
 require("src.code.states.menu_state")
 require("src.code.states.game_state")
+require("src.code.rect")
 
 function juno.onLoad(dt)
-  juno.debug.setVisible(true)
-  G.screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
-  state = "splash_state"
   menu_state.onLoad(dt)
   splash_state.onLoad(dt)
   game_state.onLoad(dt)
+  juno.debug.setVisible(true)
+  G.screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
+  state = "splash_state"
 end
 
 function juno.onUpdate(dt)

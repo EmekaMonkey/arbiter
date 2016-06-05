@@ -1,6 +1,7 @@
-Rect = Class:extend()
+Rect = l.Class:extend()
 
-function Rect:new(x, y, width, height)
+function Rect:new(id, x, y, width, height)
+  self.id = id or "Rect"
   self.x = x or 0
   self.y = y or 0
   self.width = width or 0
@@ -15,7 +16,8 @@ function Rect:getSize()
   return self.width, self.height
 end
 
-function Rect:set(x, y, width, height)
+function Rect:set(id, x, y, width, height)
+  self.id = id or self.id
   self.x = x or self.x
   self.y = y or self.y
   self.width = width or self.width
@@ -36,7 +38,7 @@ function Rect:getTop()
 end
 
 function Rect:getBottom()
-  return self.y + self.h
+  return self.y + self.height
 end
 
 function Rect:getLeft()
@@ -44,11 +46,11 @@ function Rect:getLeft()
 end
 
 function Rect:getRight()
-  return self.x + self.w
+  return self.x + self.width
 end
 
 function Rect:isColliding(e)
-  e = e or Rect("nil", 0, 0, 0, 0)
+  e = e or Rect("Rect", 0, 0, 0, 0)
   if self:getTop() == e:getBottom() then
     return print(tostring(e.id) .. " is colliding with " .. tostring(self.id) .. ".")
   elseif self:getBottom() == e:getTop() then
@@ -64,5 +66,5 @@ end
 
 function Rect:isOverlaping(e)
   e = e or Rect("nil", 0, 0, 0, 0)
-  return e.x + e.w > self.x and e.x < self.x + self.w and e.y + e.h > self.y and e.y < self.y + self.h
+  return e.x + e.width > self.x and e.x < self.x + self.width and e.y + e.height > self.y and e.y < self.y + self.height
 end
