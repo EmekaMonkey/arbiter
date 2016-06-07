@@ -29,18 +29,24 @@ function splash_state.onUpdate(dt)
           color[3] = color[3] - .01
           l.coil.wait(.1)
         end
-        l.coil.wait(.5)
+        l.coil.wait(.2)
+        state = "menu_state"
       end)
-      state = "menu_state"
     end
 end
 function splash_state.onDraw(dt)
-  -- 
-  -- juno.graphics.drawBox(x, y, 11, 16, unpack{1,1,1})
-  juno.graphics.clear(0, 0, 0, 1)
   juno.graphics.setColor(unpack(color))
   juno.graphics.drawCircle(128, 128, 64)
   -- juno.graphics.draw(G.icon,128, 128)
+end
+
+function splash_state.onKeyDown(k)
+  if k == "x" then
+    state = "menu_state"
+  end
+  if k == "escape" then
+    os.exit()
+  end
 end
 
 return splash_state

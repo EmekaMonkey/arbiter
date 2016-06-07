@@ -13,4 +13,8 @@ function game_state.onDraw(dt)
   player:floodFill(16, 16, unpack{.4,.8,.2})
 end
 
+function game_state.onKeyDown(k)
+
+end
+
 return game_state

@@ -21,7 +21,6 @@ function juno.onUpdate(dt)
   elseif  state == "menu_state"     then
     menu_state.onUpdate(dt)
   end
-  -- print(state)
 end
 
 function juno.onDraw(dt)
@@ -31,5 +30,15 @@ function juno.onDraw(dt)
     game_state.onLoad(dt)
   elseif  state == "menu_state"    then
     menu_state.onDraw(dt)
+  end
+end
+
+function juno.onKeyDown(k)
+  if      state == "splash_state"  then
+    splash_state.onKeyDown(k)
+  elseif  state == "game_state"    then
+    game_state.onKeyDown(k)
+  elseif  state == "menu_state"    then
+    menu_state.onKeyDown(k)
   end
 end

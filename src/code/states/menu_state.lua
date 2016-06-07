@@ -54,5 +54,10 @@ function menu_state.onDraw(dt)
   juno.graphics.drawText(font, buttons[1], 102, 96)
 end
 
+function menu_state.onKeyDown(k)
+  if k == "escape" then
+    os.exit()
+  end
+end
 
 return menu_state
