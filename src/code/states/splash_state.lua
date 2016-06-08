@@ -3,7 +3,8 @@ splash_state = {}
 function splash_state.onLoad(dt)
   color = {0,0,0}
   fadedIn = false
-  G.icon = juno.Buffer.fromFile("src/resources/ui/icon.png")
+  G.splash = juno.Buffer.fromFile("src/resources/ui/splash.png")
+
 end
 
 function splash_state.onUpdate(dt)
@@ -36,16 +37,15 @@ function splash_state.onUpdate(dt)
 end
 function splash_state.onDraw(dt)
   juno.graphics.setColor(unpack(color))
-  juno.graphics.drawCircle(128, 128, 64)
-  -- juno.graphics.draw(G.icon,128, 128)
+
+  -- juno.graphics.drawCircle(128, 128, 64)
+  juno.graphics.drawText(G.big_font,G.author, juno.graphics.getWidth()/2 - (G.big_font:getWidth(G.author)/2), juno.graphics.getHeight()/2-G.big_font:getHeight())
+  -- juno.graphics.draw(G.splash,64, 64)
 end
 
 function splash_state.onKeyDown(k)
   if k == "x" then
     state = "menu_state"
-  end
-  if k == "escape" then
-    os.exit()
   end
 end
 
