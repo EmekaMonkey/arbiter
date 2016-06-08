@@ -14,27 +14,26 @@ function menu_state.onLoad(dt)
   exit = Rect("Exit", 96, 160, 64, 16)
   font = juno.Font.fromEmbedded()
   d_color = {.9,.7,.7}]]
-
+  G.menu_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
   splsash = juno.Buffer.fromFile("src/resources/graphics/player.png")
 
-  b = {
-    p = {
-      t = "Play",
-      x = 64,
-      y = 0
-    },
-    c = {
-      t = "Credits",
-      x = 64,
-      y = 64
-    },
-    q = {
-      q = "Quit",
-      x = 64,
-      y = 128
-    },
-    f = p
+  b = {}
+  b.p = {
+    t = "Play",
+    x = 64,
+    y = 0
   }
+  b.c = {
+    t = "Credits",
+    x = 64,
+    y = 64
+  }
+  b.q = {
+    q = "Quit",
+    x = 64,
+    y = 128
+  }
+  b.f = b.p
 end
 
 function menu_state.onUpdate(dt)
@@ -46,6 +45,7 @@ function menu_state.onUpdate(dt)
 end
 
 function menu_state.onDraw(dt)
+  G.menu_screen:setColor(unpack{1,1,1})
   --[[juno.graphics.drawText(G.big_font, "arbiter", 102, 32)
 
   if play:isOverlaping(mouse) then
@@ -73,7 +73,9 @@ function menu_state.onDraw(dt)
     juno.graphics.drawRect(96, 160, 64, 16,unpack(d_color))
   end
   juno.graphics.drawText(font, buttons[1], 102, 96)]]
-  juno.graphics.draw(splsash,120,120)
+  G.menu_screen:draw(splsash,64,0)
+  -- juno.graphics.copyPixels(G.screen,0,0,nil,G.scale)
+
 end
 
 function menu_state.onKeyDown(k)

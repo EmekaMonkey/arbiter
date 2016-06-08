@@ -2,6 +2,8 @@ game_state = {}
 
 function game_state.onLoad(dt)
   player = juno.Buffer.fromBlank(16, 16)
+  G.game_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
+
 end
 
 function game_state.onUpdate(dt)

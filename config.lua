@@ -7,7 +7,7 @@ G = {
   height = 128,
   scale = 4,
   font = juno.Font.fromFile("src/resources/fonts/m5x7.ttf", 16),
-  big_font = juno.Font.fromFile("src/resources/fonts/m5x7.ttf", 64),
+  big_font = juno.Font.fromFile("src/resources/fonts/m5x7.ttf", 32),
 }
 
 return {
