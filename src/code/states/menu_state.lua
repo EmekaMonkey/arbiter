@@ -2,29 +2,30 @@ menu_state = {}
 
 function menu_state.onLoad(dt)
   G.menu_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
+  G.menu_cursor = juno.Buffer.fromFile("src/resources/ui/cursor.png")
 
   b = {}
   b.p = {
     f = 0,
     t = "Play",
-    x = 64,
-    y = 0,
-    img = juno.Buffer.fromFile("src/resources/ui/button.png"),
-  }
-  b.c = {
-    f = 1,
-    t = "Credits",
-    x = 64,
     y = 32,
     img = juno.Buffer.fromFile("src/resources/ui/button.png"),
   }
-  b.q = {
-    f = 2,
-    t = "Quit",
-    x = 64,
+  b.p.x = G.menu_screen:getWidth() / 24 - (G.font:getWidth(b.p.t) / 24)
+  b.c = {
+    f = 1,
+    t = "Credits",
     y = 64,
     img = juno.Buffer.fromFile("src/resources/ui/button.png"),
   }
+  b.c.x = G.menu_screen:getWidth() / 24 - (G.font:getWidth(b.c.t) / 24)
+  b.q = {
+    f = 2,
+    t = "Quit",
+    y = 96,
+    img = juno.Buffer.fromFile("src/resources/ui/button.png"),
+  }
+  b.q.x = G.menu_screen:getWidth() / 24 - (G.font:getWidth(b.q.t) / 24)
   b.f = 0
 end
 
@@ -34,37 +35,31 @@ end
 
 function menu_state.onDraw(dt)
   G.menu_screen:clear()
-  G.menu_screen:setColor(unpack{1,1,1})
+  G.menu_screen:setColor(unpack{1, 1, 1})
 
   if b.f == 0 then
-    G.menu_screen:setColor(unpack{.5,.5,.5})
-    -- G.menu_screen:draw(b.p.img,b.p.x,b.p.y)
-    G.menu_screen:drawText(G.font, b.p.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.p.t)/13),b.p.y)
-    G.menu_screen:drawRect(b.p.x,b.p.y,16,16,unpack{.9,.2,0})
+    G.menu_screen:setColor(unpack{.2, .2, .2})
+    G.menu_screen:draw(G.menu_cursor, b.p.x - 2, b.p.y)
+    G.menu_screen:drawText(G.font, b.p.t, b.p.x + 8, b.p.y)
   else
-    G.menu_screen:setColor(unpack{1,1,1})
-    -- G.menu_screen:draw(b.p.img,b.p.x,b.p.y)
-    G.menu_screen:drawText(G.font, b.p.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.p.t)/13),b.p.y)
+    G.menu_screen:setColor(unpack{1, 1, 1})
+    G.menu_screen:drawText(G.font, b.p.t, b.p.x, b.p.y)
   end
   if b.f == 1 then
-    G.menu_screen:setColor(unpack{.5,.5,.5})
-    -- G.menu_screen:draw(b.c.img,b.c.x,b.c.y)
-    G.menu_screen:drawText(G.font, b.c.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.c.t)/13),b.c.y)
-    G.menu_screen:drawRect(b.c.x,b.c.y,16,16,unpack{.9,.2,0})
+    G.menu_screen:setColor(unpack{.2, .2, .2})
+    G.menu_screen:draw(G.menu_cursor, b.c.x - 2, b.c.y)
+    G.menu_screen:drawText(G.font, b.c.t, b.c.x + 8, b.c.y)
   else
-    G.menu_screen:setColor(unpack{1,1,1})
-    -- G.menu_screen:draw(b.c.img,b.c.x,b.c.y)
-    G.menu_screen:drawText(G.font, b.c.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.c.t)/13),b.c.y)
+    G.menu_screen:setColor(unpack{1, 1, 1})
+    G.menu_screen:drawText(G.font, b.c.t, b.c.x, b.c.y)
   end
   if b.f == 2 then
-    G.menu_screen:setColor(unpack{.5,.5,.5})
-    -- G.menu_screen:draw(b.q.img,b.q.x,b.q.y)
-    G.menu_screen:drawText(G.font, b.q.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.q.t)/13),b.q.y)
-    G.menu_screen:drawRect(b.q.x,b.q.y,16,16,unpack{.9,.2,0})
+    G.menu_screen:setColor(unpack{.2, .2, .2})
+    G.menu_screen:draw(G.menu_cursor, b.q.x - 2, b.q.y)
+    G.menu_screen:drawText(G.font, b.q.t, b.q.x + 8, b.q.y)
   else
-    G.menu_screen:setColor(unpack{1,1,1})
-    -- G.menu_screen:draw(b.q.img,b.q.x,b.q.y)
-    G.menu_screen:drawText(G.font, b.q.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.q.t)/13),b.q.y)
+    G.menu_screen:setColor(unpack{1, 1, 1})
+    G.menu_screen:drawText(G.font, b.q.t, b.q.x, b.q.y)
   end
 end
 
