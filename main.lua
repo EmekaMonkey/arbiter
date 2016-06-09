@@ -4,7 +4,7 @@ require("src.code.states.menu_state")
 require("src.code.states.game_state")
 require("src.code.rect")
 --[[
-  no x, y values higher that 64 !!!!!!!!!!!!!!!!
+  no x, y values higher that 128 !!!!!!!!!!!!!!!!
 ]]
 
 function juno.onLoad(dt)
@@ -38,14 +38,11 @@ function juno.onDraw(dt)
   elseif  state == "menu_state"    then
     menu_state.onDraw(dt)
     juno.graphics.copyPixels(G.menu_screen,0,0,nil,G.scale)
-
   end
 end
 
 function juno.onKeyDown(k)
-  if k == "escape" then
-      os.exit()
-  end
+  if k == "escape" then os.exit() end
   if      state == "splash_state"  then
     splash_state.onKeyDown(k)
   elseif  state == "game_state"    then

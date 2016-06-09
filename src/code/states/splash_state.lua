@@ -39,9 +39,9 @@ function splash_state.onUpdate(dt)
 end
 function splash_state.onDraw(dt)
   G.splash_screen:setColor(unpack(color))
-  print("Font" .. G.font:getHeight(),"Big Font" .. G.big_font:getHeight())
+  -- print("Font" .. G.font:getHeight(),"Big Font" .. G.big_font:getHeight())
   -- G.screen:drawCircle(0, 0, 16)
-  G.splash_screen:drawText(G.font,G.author, G.splash_screen:getWidth()/4 - (G.font:getWidth(G.author)/4), G.splash_screen:getHeight()/4-G.font:getHeight())
+  G.splash_screen:drawText(G.font,G.author, G.splash_screen:getWidth()/13 - (G.font:getWidth(G.author)/13), G.splash_screen:getHeight()/7-G.font:getHeight())
   -- juno.graphics.draw(G.splash,64, 64)
   -- juno.graphics.copyPixels(G.screen,0,0,nil,G.scale)
 
