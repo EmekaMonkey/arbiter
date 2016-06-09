@@ -1,12 +1,10 @@
 splash_state = {}
 
 function splash_state.onLoad(dt)
-  G.splash_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
-
   color = {0,0,0}
   fadedIn = false
+  G.splash_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
   G.splash = juno.Buffer.fromFile("src/resources/ui/splash.png")
-
 end
 
 function splash_state.onUpdate(dt)
@@ -39,18 +37,11 @@ function splash_state.onUpdate(dt)
 end
 function splash_state.onDraw(dt)
   G.splash_screen:setColor(unpack(color))
-  -- print("Font" .. G.font:getHeight(),"Big Font" .. G.big_font:getHeight())
-  -- G.screen:drawCircle(0, 0, 16)
   G.splash_screen:drawText(G.font,G.author, G.splash_screen:getWidth()/13 - (G.font:getWidth(G.author)/13), G.splash_screen:getHeight()/7-G.font:getHeight())
-  -- juno.graphics.draw(G.splash,64, 64)
-  -- juno.graphics.copyPixels(G.screen,0,0,nil,G.scale)
-
 end
 
 function splash_state.onKeyDown(k)
-  if k == "x" then
-    state = "menu_state"
-  end
+  if k == "x" then state = "menu_state" end
 end
 
 return splash_state
