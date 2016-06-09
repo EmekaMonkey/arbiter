@@ -20,7 +20,7 @@ function menu_state.onLoad(dt)
   }
   b.q = {
     f = 2,
-    q = "Quit",
+    t = "Quit",
     x = 64,
     y = 64,
     img = juno.Buffer.fromFile("src/resources/ui/button.png"),
@@ -38,27 +38,33 @@ function menu_state.onDraw(dt)
 
   if b.f == 0 then
     G.menu_screen:setColor(unpack{.5,.5,.5})
-    G.menu_screen:draw(b.p.img,b.p.x,b.p.y)
+    -- G.menu_screen:draw(b.p.img,b.p.x,b.p.y)
+    G.menu_screen:drawText(G.font, b.p.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.p.t)/13),b.p.y)
     G.menu_screen:drawRect(b.p.x,b.p.y,16,16,unpack{.9,.2,0})
   else
     G.menu_screen:setColor(unpack{1,1,1})
-    G.menu_screen:draw(b.p.img,b.p.x,b.p.y)
+    -- G.menu_screen:draw(b.p.img,b.p.x,b.p.y)
+    G.menu_screen:drawText(G.font, b.p.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.p.t)/13),b.p.y)
   end
   if b.f == 1 then
     G.menu_screen:setColor(unpack{.5,.5,.5})
-    G.menu_screen:draw(b.c.img,b.c.x,b.c.y)
+    -- G.menu_screen:draw(b.c.img,b.c.x,b.c.y)
+    G.menu_screen:drawText(G.font, b.c.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.c.t)/13),b.c.y)
     G.menu_screen:drawRect(b.c.x,b.c.y,16,16,unpack{.9,.2,0})
   else
     G.menu_screen:setColor(unpack{1,1,1})
-    G.menu_screen:draw(b.c.img,b.c.x,b.c.y)
+    -- G.menu_screen:draw(b.c.img,b.c.x,b.c.y)
+    G.menu_screen:drawText(G.font, b.c.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.c.t)/13),b.c.y)
   end
   if b.f == 2 then
     G.menu_screen:setColor(unpack{.5,.5,.5})
-    G.menu_screen:draw(b.q.img,b.q.x,b.q.y)
+    -- G.menu_screen:draw(b.q.img,b.q.x,b.q.y)
+    G.menu_screen:drawText(G.font, b.q.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.q.t)/13),b.q.y)
     G.menu_screen:drawRect(b.q.x,b.q.y,16,16,unpack{.9,.2,0})
   else
     G.menu_screen:setColor(unpack{1,1,1})
-    G.menu_screen:draw(b.q.img,b.q.x,b.q.y)
+    -- G.menu_screen:draw(b.q.img,b.q.x,b.q.y)
+    G.menu_screen:drawText(G.font, b.q.t, G.menu_screen:getWidth()/13 - (G.font:getWidth(b.q.t)/13),b.q.y)
   end
 end
 
