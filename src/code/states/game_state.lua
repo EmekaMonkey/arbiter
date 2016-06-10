@@ -1,4 +1,7 @@
 game_state = {}
+local Input = require("src.code.util.input")
+local keys = {} 
+
 
 function game_state.onLoad(dt)
   player = juno.Buffer.fromBlank(16, 16)
@@ -12,11 +15,12 @@ function game_state.onUpdate(dt)
 end
 
 function game_state.onDraw(dt)
-  player:floodFill(16, 16, unpack{.4,.8,.2})
+  player:drawRect(0, 0, 8, 8, unpack{.4,.8,.2})
+  G.game_screen:draw(player, 0,0)
 end
 
 function game_state.onKeyDown(k)
-
+  Input.update(keys,k)
 end
 
 return game_state

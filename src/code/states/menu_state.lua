@@ -1,10 +1,12 @@
 menu_state = {}
+local Button = require("src.code.ui.button")
+local Input = require("src.code.util.input")
 
 function menu_state.onLoad(dt)
   G.menu_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
   G.menu_cursor = juno.Buffer.fromFile("src/resources/ui/cursor.png")
 
-  b = {}
+  --[[b = {}
   b.p = {
     f = 0,
     t = "Play",
@@ -26,7 +28,34 @@ function menu_state.onLoad(dt)
     img = juno.Buffer.fromFile("src/resources/ui/button.png"),
   }
   b.q.x = G.menu_screen:getWidth() / 24 - (G.font:getWidth(b.q.t) / 24)
-  b.f = 0
+  b.f = 0--]]
+  play = Button("Play", 32, G.menu_screen, "", [[
+  state = "game_state"]], [[
+  G.menu_screen:setColor(unpack{.2, .2, .2})
+  G.menu_screen:draw(G.menu_cursor, play.x - 2, play.y)
+  G.menu_screen:drawText(G.font, play.txt, play.x + 8, play.y)
+  ]], [[
+  G.menu_screen:setColor(unpack{1, 1, 1})
+  G.menu_screen:drawText(G.font, play.txt, play.x, play.y)
+  ]], "x")
+  credits = Button("Credits", 64, G.menu_screen, "", [[
+  print(G.author .. " is the Author")]], [[
+  G.menu_screen:setColor(unpack{.2, .2, .2})
+  G.menu_screen:draw(G.menu_cursor, credits.x - 2, credits.y)
+  G.menu_screen:drawText(G.font, credits.txt, credits.x + 8, credits.y)
+  ]],[[
+  G.menu_screen:setColor(unpack{1, 1, 1})
+  G.menu_screen:drawText(G.font, credits.txt, credits.x, credits.y)
+  ]], "x")
+  quit = Button("Quit", 96, G.menu_screen, "", [[
+  os.exit()]], [[
+  G.menu_screen:setColor(unpack{.2, .2, .2})
+  G.menu_screen:draw(G.menu_cursor, quit.x - 2, quit.y)
+  G.menu_screen:drawText(G.font, quit.txt, quit.x + 8, quit.y)
+  ]],[[
+  G.menu_screen:setColor(unpack{1, 1, 1})
+  G.menu_screen:drawText(G.font, quit.txt, quit.x, quit.y)
+  ]], "x")
 end
 
 function menu_state.onUpdate(dt)
@@ -36,8 +65,10 @@ end
 function menu_state.onDraw(dt)
   G.menu_screen:clear()
   G.menu_screen:setColor(unpack{1, 1, 1})
-
-  if b.f == 0 then
+  play:draw()
+  credits:draw()
+  quit:draw()
+  --[[if b.f == 0 then
     G.menu_screen:setColor(unpack{.2, .2, .2})
     G.menu_screen:draw(G.menu_cursor, b.p.x - 2, b.p.y)
     G.menu_screen:drawText(G.font, b.p.t, b.p.x + 8, b.p.y)
@@ -60,11 +91,11 @@ function menu_state.onDraw(dt)
   else
     G.menu_screen:setColor(unpack{1, 1, 1})
     G.menu_screen:drawText(G.font, b.q.t, b.q.x, b.q.y)
-  end
+  end--]]
 end
 
 function menu_state.onKeyDown(k)
-  if k == "down" then
+  --[[if k == "down" then
     b.f = b.f + 1
   elseif k == "up" then
     b.f = b.f - 1
@@ -77,7 +108,11 @@ function menu_state.onKeyDown(k)
     print(G.author .. " is the Author")
   elseif k == "x" and b.f == 2 then
     os.exit()
-  end
+  end--]]
+  Button.check(k,"inf")
+  play:keyCheck(k)
+  credits:keyCheck(k)
+  quit:keyCheck(k)
 end
 
 return menu_state

@@ -1,4 +1,8 @@
 splash_state = {}
+local Input = require("src.code.util.input")
+local keys = {
+  x = function() state = "menu_state" end
+}
 
 function splash_state.onLoad(dt)
   color = {0,0,0}
@@ -41,7 +45,8 @@ function splash_state.onDraw(dt)
 end
 
 function splash_state.onKeyDown(k)
-  if k == "x" then state = "menu_state" end
+  -- if k == "x" then state = "menu_state" end
+  Input.update(keys,k)
 end
 
 return splash_state
