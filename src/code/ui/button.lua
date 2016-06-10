@@ -1,12 +1,15 @@
 local Button = l.Class:extend()
-masterIndex = {}
+masterIndex = {
+  menuState = {},
+  pauseState = {}
+}
 index = 1
 
 
 function Button:new(txt, y, buffer, img, exc, slc, ulc, act)
-  self.idx = #masterIndex + 1
+  self.idx = #masterIndex +1
   self.txt = txt or "button"
-  table.insert(masterIndex, self.idx, self.txt)
+  masterIndex[self.idx] =  self.txt
   self.y = y or 0
 
   self.buffer = buffer or juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
