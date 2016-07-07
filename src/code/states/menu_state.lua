@@ -3,7 +3,7 @@ local Button = require("src.code.ui.button")
 
 function menu_state.onLoad(dt)
   G.menu_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
-  G.menu_cursor = juno.Buffer.fromFile("src/resources/ui/cursor.png")
+  G.menu_cursor = juno.Buffer.fromFile("src/res/ui/cursor.png")
   play = Button("Play", 32, G.menu_screen, "", [[
   state = "game_state"]], [[
   G.menu_screen:setColor(unpack{.2, .2, .2})

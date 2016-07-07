@@ -6,11 +6,11 @@ G = {
   width = 128,
   height = 128,
   scale = 4,
-  font = juno.Font.fromFile("src/resources/fonts/m5x7.ttf", 16),
-  big_font = juno.Font.fromFile("src/resources/fonts/m5x7.ttf", 32),
+  font = juno.Font.fromFile("src/res/fonts/m5x7.ttf", 16),
+  big_font = juno.Font.fromFile("src/res/fonts/m5x7.ttf", 32),
   world = {
-    gravity = 1.2,
-    friction = 1.4
+    gravity = 150,
+    friction = 10
   }
 }
 

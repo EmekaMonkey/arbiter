@@ -8,7 +8,7 @@ function splash_state.onLoad(dt)
   color = {0,0,0}
   fadedIn = false
   G.splash_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
-  G.splash = juno.Buffer.fromFile("src/resources/ui/splash.png")
+  G.splash = juno.Buffer.fromFile("src/res/ui/splash.png")
 end
 
 function splash_state.onUpdate(dt)

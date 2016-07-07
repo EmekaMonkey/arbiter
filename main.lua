@@ -1,12 +1,13 @@
-l = require("src.code.libloader")
+l = require("src.code.libs")
 require("src.code.states.splash_state")
 require("src.code.states.menu_state")
 require("src.code.states.game_state")
 require("src.code.ui.button")
+local ffi = require "ffi"
 --[[
   no x, y values higher that 128 !!!!!!!!!!!!!!!!
 ]]
-
+print(ffi.os)
 function juno.onLoad(dt)
   juno.debug.setVisible(true)
   state = "splash_state"
@@ -35,10 +36,12 @@ function juno.onDraw(dt)
     juno.graphics.copyPixels(G.splash_screen,0,0,nil,G.scale)
 
   elseif  state == "game_state"    then
+    l._.hotswap("src.code.states.game_state")
     game_state.onDraw(dt)
     juno.graphics.copyPixels(G.game_screen,0,0,nil,G.scale)
 
   elseif  state == "menu_state"    then
+    l._.hotswap("src.code.states.menu_state")
     menu_state.onDraw(dt)
     juno.graphics.copyPixels(G.menu_screen,0,0,nil,G.scale)
   end

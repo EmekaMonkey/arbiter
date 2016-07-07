@@ -20,7 +20,7 @@ while getopts ":o:""h""l" opt; do
         cp ../../../build/osx/juno .;
         cd ../Resources;
         cp ../../../pak0 .;
-        cp ../../../src/resources/ui/icon.icns .;
+        cp ../../../src/res/ui/icon.icns .;
         cd ../../..;
         rm -rf pak0;
         printf "Done.\n"

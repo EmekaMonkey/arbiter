@@ -14,7 +14,7 @@ function Button:new(txt, y, buffer, img, exc, slc, ulc, act)
 
   self.buffer = buffer or juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
 
-  self.img = img or juno.Buffer.fromFile("src/resources/ui/button.png")
+  self.img = img or juno.Buffer.fromFile("src/res/ui/button.png")
 
   self.x = x or self.buffer:getWidth() / 24 - (G.font:getWidth(self.txt) / 24)
   self.exc = loadstring(exc) or loadstring([[
