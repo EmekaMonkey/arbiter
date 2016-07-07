@@ -49,7 +49,7 @@ function player:new(x,y,spd,hlt,dmg,img,xvel,yvel,friction,gravity,buffer)
 end
 
 function player:update(dt)
-    io.write(self.x,self.y.."\n")
+    -- io.write(self.x,self.y.."\n")
     l.coil.update(dt)
     l.tick.update(dt)
     self.x = self.x + self.xvel
@@ -64,8 +64,9 @@ function player:draw(dt)
     self.img:copyPixels(self.canvas, self.x, self.y, nil)
 end
 
-function player:update_keys(k,dt)
-    Input:update(keys,k,self.xvel,self.sdt)
+function player:update_keys(k)
+    Input.update(keys,k,self.xvel,self.sdt)
+		print(k,self.x,self.y)
 end
 
 return player
