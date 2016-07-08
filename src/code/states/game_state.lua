@@ -2,7 +2,7 @@ game_state = {}
 local Player = require("src.code.player.player")
 
 function game_state.onLoad(dt)
-  G.game_screen = juno.Buffer.fromBlank(G.width * G.scale, G.height * G.scale)
+  G.game_screen = juno.Buffer.fromBlank(80,80)
   player = Player(nil,nil,"src/res/ui/cursor.png",G.game_screen)
 end
 
