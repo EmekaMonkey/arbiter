@@ -2,6 +2,13 @@
 
 ## Objects
 
+- ### Data
+  - #### Data:__gc()
+  - #### juno.Data.fromFile(filename)
+  - #### juno.Data.fromString()
+  - #### Data:getLength()
+  - #### Data:toString()
+
 - ### Font
   - ##### Font:__gc()
   - ##### juno.Font.fromFile(filename)
