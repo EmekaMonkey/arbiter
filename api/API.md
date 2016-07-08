@@ -35,8 +35,8 @@
   - #### Buffer:drawRect(x,y,w,h,unpack{r,g,b,a})
   - #### Buffer:drawBox(x,y,w,h,unpack{r,g,b,a})
   - #### Buffer:drawCircle(x,y,r,unpack{r,g,b,a})
-  - #### Buffer:drawBuffer(src,x,y,{rect_x = x, rect_y = y, rect_w = w, rect_h = h},rot,scale_x,scale_y,offset_x,offset_y)
-  - #### Buffer:draw(src,x,y,{rect_x = x, rect_y = y, rect_w = w, rect_h = h},rot,scale_x,scale_y,offset_x,offset_y)
+  - #### Buffer:drawBuffer(src,x,y,{x = rect_x, y = rect_y, w = rect_w, h = rect_h},rot,scale_x,scale_y,offset_x,offset_y)
+  - #### Buffer:draw(src,x,y,{x = rect_x, y = rect_y, w = rect_w, h = rect_h},rot,scale_x,scale_y,offset_x,offset_y)
 
 - ### Source
   - #### Source:__gc()
@@ -99,6 +99,13 @@
   - #### juno.mouse.setPosition(x,y)
 
 - ### bufferfx
+    - #### juno.bufferfx.desaturate(buffer,amount)
+    - #### juno.bufferfx.palette(buffer,{"r","g","b","a"})
+    - #### juno.bufferfx.dissolve(buffer,amount,?s?)
+    - #### juno.bufferfx.mask(buffer,mask,channel)
+    - #### juno.bufferfx.wave(buffer,src,amountx, amounty, scalex,scaley,offsetx,offsety)
+    - #### juno.bufferfx.displace(buffer,src,map,channelx,channely,scalex,scaley)
+    - #### juno.bufferfx.blur(buffer,src,radiusx,radiusy)
 
 - ### keyboard
   - #### juno.keyboard.reset()

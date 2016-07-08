@@ -3,11 +3,10 @@ require("src.code.states.splash_state")
 require("src.code.states.menu_state")
 require("src.code.states.game_state")
 require("src.code.ui.button")
-local ffi = require "ffi"
 --[[
   no x, y values higher that 128 !!!!!!!!!!!!!!!!
 ]]
-print(ffi.os)
+print(juno.system.info("os"))
 function juno.onLoad(dt)
   juno.debug.setVisible(true)
   state = "splash_state"
