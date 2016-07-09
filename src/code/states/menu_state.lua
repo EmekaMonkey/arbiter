@@ -46,7 +46,7 @@ function menu_state.onDraw(dt)
 end
 
 function menu_state.onKeyDown(k)
-  Button.check(k,"inf")
+  Button.check(k,"fin")
   play:keyCheck(k)
   credits:keyCheck(k)
   quit:keyCheck(k)

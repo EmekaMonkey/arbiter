@@ -1,4 +1,4 @@
-local Button = l.Class:extend()
+local Button = lib.Class:extend()
 masterIndex = {
   menuState = {},
   pauseState = {}

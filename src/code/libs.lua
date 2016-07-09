@@ -9,4 +9,4 @@ lib = {
   tick = require("src.code.lib.tick"),
 }
 
-return lib
+return {lib=lib}

@@ -1,4 +1,4 @@
-player = l.Class:extend()
+player = lib.Class:extend()
 
 local Input = require("src.code.util.input")
 
@@ -20,8 +20,8 @@ end
 function player:update(dt)
     -- print(self.x,self.y.."\n")
     self.dt = dt
-    l.coil.update(dt)
-    l.tick.update(dt)
+    lib.coil.update(dt)
+    lib.tick.update(dt)
     -- self.x = (self.x + self.xvel * dt)
     -- self.y = (self.y + self.yvel) + (G.world.gravity * dt)
     -- self.xvel = self.xvel * (1 - math.min(dt*G.world.friction, 1))
@@ -47,7 +47,7 @@ end
 function player:draw(dt)
     self.img:setColor(unpack{1,1,1})
     self.img:drawCircle(8,8,8)
-    self.canvas:copyPixels(self.img, self.x, self.y, nil)
+    self.canvas:copyPixels(self.img, self.x, self.y)
 end
 
 function player:update_keys(k)

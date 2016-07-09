@@ -1,21 +1,20 @@
-l = require("src.code.libs")
+require("src.code.libs")
 require("src.code.states.splash_state")
 require("src.code.states.menu_state")
 require("src.code.states.game_state")
 require("src.code.ui.button")
---[[
-  no x, y values higher that 128 !!!!!!!!!!!!!!!!
-]]
+
 local debuglog = 0
 print(juno.system.info("os"))
+
 function juno.onLoad(dt)
   state = "splash_state"
   menu_state.onLoad(dt)
-  l._.trace("Menu Assets Loaded")
+  lib._.trace("Menu Assets Loaded")
   splash_state.onLoad(dt)
-  l._.trace("Splash Assets Loaded")
+  lib._.trace("Splash Assets Loaded")
   game_state.onLoad(dt)
-  l._.trace("Game Assets Loaded")
+  lib._.trace("Game Assets Loaded")
 
 end
 
@@ -35,12 +34,12 @@ function juno.onDraw(dt)
     juno.graphics.copyPixels(G.splash_screen,0,0,nil,G.scale)
 
   elseif  state == "game_state"    then
-    l._.hotswap("src.code.states.game_state")
+    lib._.hotswap("src.code.states.game_state")
     game_state.onDraw(dt)
     juno.graphics.copyPixels(G.game_screen,0,0,nil,G.scale)
 
   elseif  state == "menu_state"    then
-    l._.hotswap("src.code.states.menu_state")
+    lib._.hotswap("src.code.states.menu_state")
     menu_state.onDraw(dt)
     juno.graphics.copyPixels(G.menu_screen,0,0,nil,G.scale)
   end

@@ -1,4 +1,4 @@
-entity = l.Class:extend()
+entity = lib.Class:extend()
 
 function entity:new(x,y,w,h,physics)
   self.x = x
@@ -9,6 +9,13 @@ function entity:new(x,y,w,h,physics)
   if self.physics then
     self.xvel = 0
     self.yvel = 0
+  end
+end
+
+function entity:add_animation(name,frames,img,w,h)
+  self.animations[name] = {}
+  for i=0, frames do
+    table.insert(self.animation[name], {})
   end
 end
 
